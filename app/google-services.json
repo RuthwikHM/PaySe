@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "69204650280",
+    "firebase_url": "https://payse-f1351.firebaseio.com",
+    "project_id": "payse-f1351",
+    "storage_bucket": "payse-f1351.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69204650280:android:710bed6d52c62a4b29c81d",
+        "android_client_info": {
+          "package_name": "com.example.payse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "69204650280-62ecldm32ncp2f2bvagtrk9b7gvrvnei.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWKm1wR7fd83dcuJPej15URVbMUc1hZxk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "69204650280-62ecldm32ncp2f2bvagtrk9b7gvrvnei.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

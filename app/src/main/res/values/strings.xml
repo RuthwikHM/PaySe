@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PaySe</string>
+    <string name="pay">Pay</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="enter_amount">Enter amount</string>
+    <string name="amt_err">Amount to be sent cannot be zero</string>
+</resources>
