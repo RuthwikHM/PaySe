@@ -6,18 +6,18 @@
     tools:context="com.example.payse.MainActivity"
     android:layout_height="match_parent">
 
-<ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/qrcode"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:id="@+id/barcode_scanner"/>
-</RelativeLayout>
+<!--<ImageButton-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/qrcode"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:id="@+id/barcode_scanner"/>-->
+<!--</RelativeLayout>-->
 
 <!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
 <!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:id="@+id/activity_main"-->
+<!--    android:id="@+id/payment"-->
 <!--    android:layout_width="match_parent"-->
 <!--    tools:context="com.example.payse.MainActivity"-->
 <!--     android:layout_height="match_parent">-->
@@ -55,11 +55,33 @@
 
 <!--    </LinearLayout>-->
 
-<!--    <Button-->
-<!--        android:id="@+id/buttonScan"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:text="Scan QR Code" />-->
+    <Button
+        android:id="@+id/signupnav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/buttonReceive"
+        android:layout_marginBottom="146dp"
+        android:text="Signup" />
 
-<!--</RelativeLayout>-->
+    <Button
+        android:id="@+id/loginnav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/signupnav"
+        android:layout_marginBottom="89dp"
+        android:text="Login" />
+
+    <Button
+        android:id="@+id/buttonScan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Make payment" />
+
+    <Button
+        android:id="@+id/buttonReceive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Receive payment" />
+
+</RelativeLayout>

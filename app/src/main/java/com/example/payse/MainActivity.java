@@ -2,10 +2,9 @@ package com.example.payse;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -16,19 +15,42 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import io.opencensus.tags.Tag;
+
 public class MainActivity extends AppCompatActivity{
-    private ImageButton scan;
+    private Button scan,receive,signup,login;
     private IntentIntegrator qrScan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        scan = findViewById(R.id.barcode_scanner);
+        scan = findViewById(R.id.buttonScan);
+        receive = findViewById(R.id.buttonReceive);
+        signup = findViewById(R.id.signupnav);
+        login = findViewById(R.id.loginnav);
         qrScan = new IntentIntegrator(this);
+
         scan.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 qrScan.initiateScan();
+            }
+        });
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this,SignUpActivity.class);
+                startActivity(i);
+                Log.d("Activity","SignupActivity");
+            }
+        });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(i);
+                Log.d("Activity","LoginActivity");
             }
         });
     }
@@ -40,13 +62,16 @@ public class MainActivity extends AppCompatActivity{
         if (result != null) {
             //if qrcode has nothing in it
             if (result.getContents() == null) {
-                Toast.makeText(this, "Result Not Found", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Invalid QR code.Try again.", Toast.LENGTH_LONG).show();
             } else {
                 //if qr contains data
                 try {
                     //converting the data to json
                     JSONObject obj = new JSONObject(result.getContents());
-                    Toast.makeText(this, obj.toString(), Toast.LENGTH_LONG).show();
+//                    Toast.makeText(this, obj.toString(), Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(this,PaymentActivity.class);
+                    i.putExtra("user",result.getContents());
+                    startActivity(i);
                 } catch (JSONException e) {
                     e.printStackTrace();
                     //if control comes here
@@ -57,6 +82,7 @@ public class MainActivity extends AppCompatActivity{
                 }
             }
         } else {
+            Toast.makeText(this,"Transaction failed.Try again.",Toast.LENGTH_LONG);
             super.onActivityResult(requestCode, resultCode, data);
         }
     }

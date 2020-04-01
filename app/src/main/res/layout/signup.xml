@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/password"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/signup"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="21dp"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/verifycode"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="162dp"
+        android:layout_marginBottom="39dp"
+        android:text="Signup" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView2"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="58dp"
+        android:layout_toStartOf="@+id/phone"
+        android:text="Phone" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/signup"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="37dp"
+        android:layout_toStartOf="@+id/password"
+        android:text="Password" />
+
+    <EditText
+        android:id="@+id/verifycode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/verify"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="89dp"
+        android:layout_marginBottom="19dp"
+        android:ems="10"
+        android:enabled="true"
+        android:hint="Enter verification code"
+        android:inputType="phone" />
+
+    <Button
+        android:id="@+id/verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="36dp"
+        android:enabled="true"
+        android:text="Verify" />
+</RelativeLayout>

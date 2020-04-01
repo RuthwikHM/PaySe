@@ -4,4 +4,5 @@
     <string name="enter_phone_number">Enter phone number</string>
     <string name="enter_amount">Enter amount</string>
     <string name="amt_err">Amount to be sent cannot be zero</string>
+    <string name="title_activity_signup">Signup</string>
 </resources>
