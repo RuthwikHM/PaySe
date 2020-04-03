@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "69204650280-tg50647gn9s0tpgahtnfrikr0hk401mq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.payse",
+            "certificate_hash": "90dbd65eed67c0498f02a53448269ce75baa858b"
+          }
+        },
+        {
           "client_id": "69204650280-62ecldm32ncp2f2bvagtrk9b7gvrvnei.apps.googleusercontent.com",
           "client_type": 3
         }

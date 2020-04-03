@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
@@ -19,7 +22,11 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -30,16 +37,20 @@ public class SignUpActivity extends AppCompatActivity {
 //    private boolean verifying;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private String mVerificationId;
+    FirebaseFirestore db;
+    Map<String, Object> user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
+        db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         signup = findViewById(R.id.signup);
         phone = findViewById(R.id.phone);
         password = findViewById(R.id.password);
+        user = new HashMap<>();
 
 
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -79,7 +90,10 @@ public class SignUpActivity extends AppCompatActivity {
                 verifycode = findViewById(R.id.verifycode);
                 verify.setEnabled(true);
                 verifycode.setEnabled(true);
-                String phoneNumber = phone.getText().toString();
+                String phoneNumber = "+91" + phone.getText().toString();
+                String pass = password.getText().toString();
+                user.put("phone",phoneNumber);
+                user.put("password",pass);
                 PhoneAuthProvider.getInstance().verifyPhoneNumber(
                         phoneNumber,        // Phone number to verify
                         60,                 // Timeout duration
@@ -90,23 +104,35 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser == null){
-            Intent notLoggedIn = new Intent(SignUpActivity.this,LoginActivity.class);
-            startActivity(notLoggedIn);
-            finish();
-        }
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        if(currentUser == null){
+//            Intent notLoggedIn = new Intent(SignUpActivity.this,LoginActivity.class);
+//            startActivity(notLoggedIn);
+//            finish();
+//        }
+//    }
 
     private void verifyVerificationCode(String otp) {
         //creating the credential
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, otp);
         //signing the user
         signInWithPhoneAuthCredential(credential);
+        db.collection("users").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                Log.d("User creation success", "DocumentSnapshot added with ID: " + documentReference.getId());
+            }
+        })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("User creation failed", "Error adding document", e);
+                    }
+                });
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
@@ -116,9 +142,10 @@ public class SignUpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             //verification successful we will start the profile activity
-                            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
+                            Toast.makeText(SignUpActivity.this,"Login successful",Toast.LENGTH_LONG);
 
                         } else {
 
