@@ -1,4 +1,4 @@
-package app1.example.payse;
+package com.example.payse;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
-import static app1.example.payse.R.*;
 
 public class payment_options extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
@@ -24,30 +23,30 @@ public class payment_options extends AppCompatActivity implements NavigationView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(layout.activity_payment_options);
-        toolbar = findViewById(id.toolbar);
+        setContentView(R.layout.activity_payment_options);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        drawer = findViewById(id.drawer_layout);
-        NavigationView navigationView = findViewById(id.nav_view);
+        drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer ,toolbar, R.string.navigation_draw_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case id.nav_transactions:
-                startActivity(new Intent(payment_options.this,recent_payments.class));
+            case R.id.nav_transactions:
+                startActivity(new Intent(payment_options.this, recent_payments.class));
                 break;
         }
         return true;
     }
-
 
     @Override
     public void onBackPressed() {
@@ -57,8 +56,5 @@ public class payment_options extends AppCompatActivity implements NavigationView
         else{
             super.onBackPressed();
         }
-
     }
-
-
 }

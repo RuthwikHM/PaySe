@@ -15,8 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import io.opencensus.tags.Tag;
-
 public class MainActivity extends AppCompatActivity{
     private Button scan,receive,signup,login;
     private IntentIntegrator qrScan;

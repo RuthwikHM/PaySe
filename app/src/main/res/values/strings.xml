@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">payse</string>
+    <string name="app_name">Payse</string>
     <string name="title_activity_payment_options">payment_options</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -16,4 +16,10 @@
     <string name="menu_send">Send</string>
     <string name="navigation_draw_open">Open navigation Drawer</string>
     <string name="navigation_draw_close">Close navigation Drawer</string>
+
+    <string name="pay">Pay</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="enter_amount">Enter amount</string>
+    <string name="amt_err">Amount to be sent cannot be zero</string>
+    <string name="title_activity_signup">Signup</string>
 </resources>

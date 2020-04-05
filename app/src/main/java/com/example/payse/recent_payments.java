@@ -1,17 +1,14 @@
-package app1.example.payse;
+package com.example.payse;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
 
-public class nav_header extends AppCompatActivity {
+public class recent_payments extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.nav_header);
-
+        setContentView(R.layout.activity_recent_payments);
     }
 }

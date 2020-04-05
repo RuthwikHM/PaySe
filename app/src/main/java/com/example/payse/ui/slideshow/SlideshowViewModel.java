@@ -1,4 +1,4 @@
-package app1.example.payse.ui.slideshow;
+package com.example.payse.ui.slideshow;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

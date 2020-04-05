@@ -73,7 +73,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="54dp"
-        android:layout_marginBottom="136dp"
+        android:layout_marginBottom="256dp"
         app:cardBackgroundColor="#4CAF50"
         android:elevation="10dp"
         app:cardCornerRadius="25dp"
@@ -110,6 +110,30 @@
         android:textColor="#ffffff"
         android:textColorHint="#ffffff" />
 
+
+    <EditText
+        android:id="@+id/verifycode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/verify"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="107dp"
+        android:layout_marginBottom="29dp"
+        android:ems="10"
+        android:hint="Enter verification code"
+        android:inputType="phone"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="163dp"
+        android:layout_marginBottom="75dp"
+        android:text="Verify"
+        android:visibility="invisible" />
 
 </RelativeLayout>
 
