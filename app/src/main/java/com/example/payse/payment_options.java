@@ -18,7 +18,7 @@ import com.google.android.material.navigation.NavigationView;
 public class payment_options extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     private Toolbar toolbar;
-    private TextView pname;
+    private TextView pname,phno;
     String fullname;
 
     @Override
@@ -28,6 +28,11 @@ public class payment_options extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_payment_options);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        fullname = savedInstanceState.getString("username");
+        phno = findViewById(R.id.phno);
+        pname = findViewById(R.id.proname);
+        pname.setText(fullname);
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);

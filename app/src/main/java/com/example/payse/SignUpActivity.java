@@ -175,6 +175,7 @@ public class SignUpActivity extends AppCompatActivity {
                             //verification successful we will start the profile activity
                             Intent intent = new Intent(SignUpActivity.this, payment_options.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent.putExtra("username",username.getText().toString());
                             startActivity(intent);
                             Toast.makeText(SignUpActivity.this,"Login successful",Toast.LENGTH_LONG);
 
