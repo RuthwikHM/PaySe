@@ -3,9 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_balance"
-            android:icon="@drawable/ic_account_balance"
-            android:title="Account Balance"></item>
+        <item android:id="@+id/pay"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Make Payment"></item>
+
+        <item android:id="@+id/recieve"
+            android:icon="@drawable/qrcode"
+            android:title="Receieve Payment"></item>
+
 
         <item android:id="@+id/nav_transactions"
             android:icon="@drawable/ic_previous_transactions"

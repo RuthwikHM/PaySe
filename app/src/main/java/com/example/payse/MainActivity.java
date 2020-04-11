@@ -1,10 +1,14 @@
 package com.example.payse;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -14,6 +18,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity{
     private Button scan,receive,signup,login;
@@ -51,6 +60,17 @@ public class MainActivity extends AppCompatActivity{
                 Log.d("Activity","LoginActivity");
             }
         });
+
+        receive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String phone_number = "8431144466";
+                String qrcode;
+                qrcode = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + phone_number ;
+                ImageView qr = findViewById(R.id.qr);
+                new DownloadImageTask(qr).execute(qrcode);
+            }
+        });
     }
 
     //Getting the scan results
@@ -84,6 +104,35 @@ public class MainActivity extends AppCompatActivity{
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openConnection().getInputStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
+    }
+
+
+
+
 }
 
 //public class MainActivity extends AppCompatActivity implements View.OnClickListener {
