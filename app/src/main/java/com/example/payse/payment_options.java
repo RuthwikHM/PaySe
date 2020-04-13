@@ -35,6 +35,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,6 +51,7 @@ public class payment_options extends AppCompatActivity implements NavigationView
     private Task<DocumentSnapshot> userdata;
     private IntentIntegrator qrScan;
     private String to_phonenumber;
+    ArrayList prev_trans;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,7 @@ public class payment_options extends AppCompatActivity implements NavigationView
         setSupportActionBar(toolbar);
 //        mAuth = FirebaseAuth.getInstance();
 //        FirebaseUser currentUser = mAuth.getCurrentUser();
+        prev_trans = new ArrayList<Integer>(10);
 
 
         db = FirebaseFirestore.getInstance();
@@ -77,7 +80,7 @@ public class payment_options extends AppCompatActivity implements NavigationView
 
     }
 
-    public void update_DB(FirebaseFirestore db, Map<String, String> data) {
+    public void update_DB(FirebaseFirestore db, Map<String, Object> data) {
         db.collection("users").document(phonenumber).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
@@ -96,7 +99,9 @@ public class payment_options extends AppCompatActivity implements NavigationView
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_transactions:
-                startActivity(new Intent(payment_options.this, recent_payments.class));
+                Intent recent = new Intent(payment_options.this, recent_payments.class);
+                recent.putExtra("prev_transactions",prev_trans);
+                startActivity(recent);
                 break;
             case R.id.pay:
                 qrScan.initiateScan();
@@ -105,9 +110,7 @@ public class payment_options extends AppCompatActivity implements NavigationView
                 Intent recieve = new Intent(payment_options.this,RecievePayment.class);
                 recieve.putExtra("phone",phonenumber);
                 startActivity(recieve);
-
                 break;
-
         }
         return true;
     }
@@ -128,11 +131,13 @@ public class payment_options extends AppCompatActivity implements NavigationView
         phonenumber = getIntent().getStringExtra("phone");
         name = getIntent().getStringExtra("name");
         String pin = getIntent().getStringExtra("pin");
-        final Map<String, String> data = new HashMap<>();
+        prev_trans.add(500);
+        final Map<String, Object> data = new HashMap<>();
         data.put("phone", phonenumber);
         data.put("name", name);
         data.put("pin", pin);
         data.put("balance", "500");
+        data.put("prev_transactions",prev_trans);
         final DocumentSnapshot[] document = new DocumentSnapshot[1];
         userdata = db.collection("users").document(phonenumber).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -170,6 +175,7 @@ public class payment_options extends AppCompatActivity implements NavigationView
                         phonenumber = String.valueOf(document[0].get("phone"));
                         name = String.valueOf(document[0].get("name"));
                         bal = String.valueOf(document[0].get("balance"));
+                        prev_trans = (ArrayList) document[0].get("prev_transactions");
                         phno.setText(phonenumber);
                         pname.setText(name);
                         balance.setText("Balance:" + bal);

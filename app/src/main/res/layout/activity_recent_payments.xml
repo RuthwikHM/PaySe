@@ -67,10 +67,10 @@
                     android:layout_height="match_parent">
                     <TextView
                         android:layout_width="200dp"
+                        android:id="@+id/transaction1"
                         android:layout_height="24dp"
                         android:text="- Rs 100"
                         android:textSize="20dp"
-                        android:textColor="#F44336"
                         ></TextView>
                 </LinearLayout>
 
@@ -83,7 +83,6 @@
                 app:cardCornerRadius="12dp"
                 android:layout_margin="12dp"
                 app:cardBackgroundColor="#ffffff">
-
                 <LinearLayout
                     android:orientation="vertical"
                     android:padding="16dp"
@@ -91,11 +90,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
+                        android:id="@+id/transaction2"
                         android:layout_width="200dp"
                         android:layout_height="24dp"
                         android:text="+ Rs 500"
                         android:textSize="20dp"
-                        android:textColor="#09EC13"
                         ></TextView>
                 </LinearLayout>
 
@@ -116,11 +115,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
+                        android:id="@+id/transaction3"
                         android:layout_width="200dp"
                         android:layout_height="24dp"
                         android:text="- Rs 1000"
                         android:textSize="20dp"
-                        android:textColor="#F44336"
                         ></TextView>
                 </LinearLayout>
 
@@ -141,11 +140,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
+                        android:id="@+id/transaction4"
                         android:layout_width="200dp"
                         android:layout_height="24dp"
                         android:text="- Rs 50"
                         android:textSize="20dp"
-                        android:textColor="#09EC13"
                         ></TextView>
                 </LinearLayout>
 
@@ -166,11 +165,35 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
+                        android:id="@+id/transaction5"
                         android:layout_width="200dp"
                         android:layout_height="24dp"
                         android:text="- Rs 50"
                         android:textSize="20dp"
-                        android:textColor="#09EC13"
+                        ></TextView>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="6dp"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="12dp"
+                app:cardBackgroundColor="#ffffff">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/transaction6"
+                        android:layout_width="200dp"
+                        android:layout_height="24dp"
+                        android:text="- Rs 50"
+                        android:textSize="20dp"
                         ></TextView>
                 </LinearLayout>
 
@@ -191,11 +214,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
+                        android:id="@+id/transaction7"
                         android:layout_width="200dp"
                         android:layout_height="24dp"
                         android:text="- Rs 50"
                         android:textSize="20dp"
-                        android:textColor="#09EC13"
                         ></TextView>
                 </LinearLayout>
 
@@ -216,11 +239,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
+                        android:id="@+id/transaction8"
                         android:layout_width="200dp"
                         android:layout_height="24dp"
                         android:text="- Rs 50"
                         android:textSize="20dp"
-                        android:textColor="#09EC13"
                         ></TextView>
                 </LinearLayout>
 
@@ -241,11 +264,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
+                        android:id="@+id/transaction9"
                         android:layout_width="200dp"
                         android:layout_height="24dp"
                         android:text="- Rs 50"
                         android:textSize="20dp"
-                        android:textColor="#09EC13"
                         ></TextView>
                 </LinearLayout>
 
@@ -266,36 +289,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <TextView
+                        android:id="@+id/transaction10"
                         android:layout_width="200dp"
                         android:layout_height="24dp"
                         android:text="- Rs 50"
                         android:textSize="20dp"
-                        android:textColor="#09EC13"
-                        ></TextView>
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp"
-                app:cardBackgroundColor="#ffffff">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="24dp"
-                        android:text="- Rs 50"
-                        android:textSize="20dp"
-                        android:textColor="#09EC13"
                         ></TextView>
                 </LinearLayout>
 

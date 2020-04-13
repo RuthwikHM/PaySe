@@ -24,12 +24,16 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Transaction;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 
 public class PaymentActivity extends AppCompatActivity {
     private Button pay;
     private String to_phonenumber,from_phonenumber;
     private TextView phone;
     private FirebaseFirestore db;
+    private ArrayList from_prev_transactions,to_prev_transactions;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -62,18 +66,26 @@ public class PaymentActivity extends AppCompatActivity {
                         Looper.prepare();
                         DocumentSnapshot from_snapshot = transaction.get(from);
                         DocumentSnapshot to_snapshot = transaction.get(to);
-                        int balance = Integer.parseInt(from_snapshot.getString("balance"));
-                        String PIN = from_snapshot.getString("pin");
-                        int to_balance = Integer.parseInt(to_snapshot.getString("balance"));
+                        int balance = Integer.parseInt(String.valueOf(from_snapshot.get("balance")));
+                        from_prev_transactions = (ArrayList) from_snapshot.get("prev_transactions");
+                        to_prev_transactions = (ArrayList) to_snapshot.get("prev_transactions");
+                        String PIN = String.valueOf(from_snapshot.get("pin"));
+                        int to_balance = Integer.parseInt(String.valueOf(to_snapshot.get("balance")));
                         if(inp_pin.equals(PIN)){
                             if(Amount < balance){
                                  balance -= Amount;
                                  to_balance += Amount;
+                                Collections.rotate(from_prev_transactions,1);
+                                Collections.rotate(to_prev_transactions,1);
+                                from_prev_transactions.set(0,-Amount);
+                                to_prev_transactions.set(0,Amount);
                                  transaction.update(from,"balance",balance);
+                                 transaction.update(from,"prev_transactions",from_prev_transactions);
                                  transaction.update(to,"balance",to_balance);
+                                 transaction.update(to,"prev_transactions",to_prev_transactions);
                                  Intent i = new Intent(PaymentActivity.this,payment_options.class);
                                  i.putExtra("phone",from_phonenumber);
-//                                 Toast.makeText(PaymentActivity.this,"Transaction successful",Toast.LENGTH_LONG).show();
+                                 Toast.makeText(PaymentActivity.this,"Transaction successful",Toast.LENGTH_LONG).show();
                                 Log.d("Firestore","Transaction successful.");
                                  startActivity(i);
                                 return null;
