@@ -8,7 +8,136 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity"
     tools:openDrawer="start"
-    android:background="@drawable/bgapps2">
+    android:background="#000000"
+    android:theme="@style/Theme.AppCompat.NoActionBar"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        >
+
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="54dp"
+            android:layout_marginRight="1000dp"
+            android:layout_marginBottom="500dp"
+            android:clickable="true"
+            android:elevation="10dp"
+            app:cardBackgroundColor="#2196F3">
+
+            <RelativeLayout
+                android:layout_width="408dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="Make A Payment"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:layout_width="66dp"
+            android:layout_height="77dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="240dp"
+            android:layout_marginEnd="294dp"
+            android:layout_marginBottom="422dp"
+            android:id="@+id/pay"
+            android:src="@drawable/scan_qr"></ImageView>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="284dp"
+            android:layout_marginBottom="396dp"
+            android:text="Scan QR code" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="54dp"
+            android:layout_marginRight="1000dp"
+            android:layout_marginBottom="300dp"
+            android:clickable="true"
+            android:elevation="10dp"
+            app:cardBackgroundColor="#2196F3">
+
+            <RelativeLayout
+                android:layout_width="408dp"
+                android:layout_height="match_parent">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="Receive A Payment"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/receive"
+            android:layout_width="135dp"
+            android:layout_height="74dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="257dp"
+            android:layout_marginBottom="212dp"
+            app:srcCompat="@drawable/qrcode" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="255dp"
+            android:layout_marginBottom="178dp"
+            android:text="Generate a QR code" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="369dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="625dp"
+            android:text="Introducing Quick and Easy Payments facilitated by QR codes.Use the options below to make and receive payments!"
+            android:textColor="#2196F3"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,4 +168,6 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/drawer_menu"
         />
+
+
 </androidx.drawerlayout.widget.DrawerLayout>

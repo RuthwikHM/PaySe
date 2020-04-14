@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,6 +52,7 @@ public class payment_options extends AppCompatActivity implements NavigationView
     private Task<DocumentSnapshot> userdata;
     private IntentIntegrator qrScan;
     private String to_phonenumber;
+    private ImageView generate,makepay;
     ArrayList prev_trans;
 
     @Override
@@ -63,7 +65,8 @@ public class payment_options extends AppCompatActivity implements NavigationView
 //        mAuth = FirebaseAuth.getInstance();
 //        FirebaseUser currentUser = mAuth.getCurrentUser();
         prev_trans = new ArrayList<Integer>(10);
-
+        makepay = findViewById(R.id.pay);
+        generate = findViewById(R.id.receive);
 
         db = FirebaseFirestore.getInstance();
         qrScan = new IntentIntegrator(this);
@@ -78,9 +81,25 @@ public class payment_options extends AppCompatActivity implements NavigationView
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-    }
+        generate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent recieve = new Intent(payment_options.this, RecievePayment.class);
+                recieve.putExtra("phone", phonenumber);
+                startActivity(recieve);
+            }
+        });
 
-    public void update_DB(FirebaseFirestore db, Map<String, Object> data) {
+
+        makepay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                qrScan.initiateScan();
+            }
+        });
+
+    }
+        public void update_DB(FirebaseFirestore db, Map<String, Object> data) {
         db.collection("users").document(phonenumber).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
@@ -103,17 +122,19 @@ public class payment_options extends AppCompatActivity implements NavigationView
                 recent.putExtra("prev_transactions",prev_trans);
                 startActivity(recent);
                 break;
-            case R.id.pay:
-                qrScan.initiateScan();
-                break;
-            case R.id.recieve:
-                Intent recieve = new Intent(payment_options.this,RecievePayment.class);
-                recieve.putExtra("phone",phonenumber);
-                startActivity(recieve);
-                break;
+//            case R.id.pay:
+//                qrScan.initiateScan();
+//                break;
+//            case R.id.recieve:
+//                Intent recieve = new Intent(payment_options.this,RecievePayment.class);
+//                recieve.putExtra("phone",phonenumber);
+//                startActivity(recieve);
+//                break;
         }
         return true;
     }
+
+
 
     @Override
     public void onBackPressed() {

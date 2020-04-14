@@ -17,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.login);
 
         phone = findViewById(R.id.phone);
-        password = findViewById(R.id.password);
+        password = findViewById(R.id.et1);
         login = findViewById(R.id.login);
 
         login.setOnClickListener(new View.OnClickListener() {

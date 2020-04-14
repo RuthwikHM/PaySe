@@ -1,81 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bgapps2"
+    tools:context=".MainActivity">
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/username"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="40dp"-->
+    <!--        android:layout_alignParentEnd="true"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginEnd="100dp"-->
+    <!--        android:layout_marginBottom="330dp"-->
+    <!--        android:background="#11000000"-->
+    <!--        android:drawableLeft="@drawable/ic_action_phone"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="Enter Mobile number"-->
+    <!--        android:inputType="textPersonName"-->
+    <!--        android:textColor="#ffffff" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/logo"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="91dp"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginStart="113dp"-->
+<!--        android:layout_marginEnd="117dp"-->
+<!--        android:layout_marginBottom="579dp"-->
+<!--        app:srcCompat="@drawable/rupeelogo" />-->
 
     <EditText
-        android:id="@+id/phone"
+        android:id="@+id/uname1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/password"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="98dp"
-        android:layout_marginBottom="32dp"
-        android:ems="10"
-        android:inputType="phone" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/signup"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="98dp"
-        android:layout_marginBottom="21dp"
-        android:ems="10"
-        android:inputType="textPassword" />
-
-    <Button
-        android:id="@+id/signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/verifycode"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="39dp"
-        android:text="Signup" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView2"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="58dp"
-        android:layout_toStartOf="@+id/phone"
-        android:text="Phone" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/signup"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="37dp"
-        android:layout_toStartOf="@+id/password"
-        android:text="Password" />
-
-    <EditText
-        android:id="@+id/verifycode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/verify"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="89dp"
-        android:layout_marginBottom="19dp"
-        android:ems="10"
-        android:visibility="invisible"
-        android:hint="Enter verification code"
-        android:inputType="phone" />
-
-    <Button
-        android:id="@+id/verify"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="36dp"
-        android:visibility="invisible"
-        android:text="Verify" />
+        android:layout_marginEnd="99dp"
+        android:layout_marginBottom="460dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_action_user"
+        android:ems="10"
+        android:hint="Enter Name"
+        android:inputType="textPersonName"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+    <EditText
+        android:id="@+id/pin"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="355dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_action_pin"
+        android:ems="10"
+        android:hint="Enter 4 digit PIN"
+        android:inputType="numberPassword"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/loginCard"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="240dp"
+        app:cardBackgroundColor="#4CAF50"
+        android:elevation="10dp"
+        app:cardCornerRadius="25dp"
+        android:clickable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/getstarted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Sign Up for free"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <EditText
+        android:id="@+id/phnumber"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="99dp"
+        android:layout_marginBottom="406dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_action_phone"
+        android:ems="10"
+        android:hint="Enter Mobile number"
+        android:inputType="numberDecimal"
+        android:textColor="#ffffff"
+        android:textColorHint="#ffffff" />
+
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/verifycode"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_above="@+id/verify"-->
+    <!--        android:layout_alignParentEnd="true"-->
+    <!--        android:layout_marginEnd="107dp"-->
+    <!--        android:layout_marginBottom="29dp"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="Enter verification code"-->
+    <!--        android:inputType="phone"-->
+    <!--        android:visibility="invisible" />-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/verify"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentEnd="true"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginEnd="163dp"-->
+    <!--        android:layout_marginBottom="75dp"-->
+    <!--        android:text="Verify"-->
+    <!--        android:visibility="invisible" />-->
+
 </RelativeLayout>
+
