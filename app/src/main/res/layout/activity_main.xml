@@ -31,7 +31,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginStart="113dp"
         android:layout_marginEnd="117dp"
-        android:layout_marginBottom="625dp"
+        android:layout_marginBottom="579dp"
         app:srcCompat="@drawable/rupeelogo" />
 
     <EditText
@@ -40,8 +40,8 @@
         android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="102dp"
-        android:layout_marginBottom="462dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="460dp"
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_user"
         android:ems="10"
@@ -56,8 +56,8 @@
         android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="103dp"
-        android:layout_marginBottom="345dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginBottom="355dp"
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_pin"
         android:ems="10"
@@ -73,7 +73,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="54dp"
-        android:layout_marginBottom="256dp"
+        android:layout_marginBottom="240dp"
         app:cardBackgroundColor="#4CAF50"
         android:elevation="10dp"
         app:cardCornerRadius="25dp"
@@ -100,8 +100,8 @@
         android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="102dp"
-        android:layout_marginBottom="404dp"
+        android:layout_marginEnd="103dp"
+        android:layout_marginBottom="411dp"
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_phone"
         android:ems="10"
@@ -111,7 +111,7 @@
         android:textColorHint="#ffffff" />
 
 
-<!--    <EditText-->
+    <!--    <EditText-->
 <!--        android:id="@+id/verifycode"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->

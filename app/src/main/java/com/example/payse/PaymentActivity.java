@@ -1,5 +1,6 @@
 package com.example.payse;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,12 +31,13 @@ import java.util.Collections;
 
 
 public class PaymentActivity extends AppCompatActivity {
-    private Button pay;
+    private CardView confirm;
     private String to_phonenumber,from_phonenumber;
     private TextView phone;
     private FirebaseFirestore db;
     private ArrayList from_prev_transactions,to_prev_transactions;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +50,8 @@ public class PaymentActivity extends AppCompatActivity {
         phone = findViewById(R.id.to);
         phone.setText("To:" + to_phonenumber);
 
-        pay = findViewById(R.id.pay);
-        pay.setOnClickListener(new View.OnClickListener() {
+        confirm =  findViewById(R.id.confirm);
+        confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EditText Amt = findViewById(R.id.Amt);
