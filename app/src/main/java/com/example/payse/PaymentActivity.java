@@ -36,8 +36,7 @@ public class PaymentActivity extends AppCompatActivity {
     private TextView phone;
     private FirebaseFirestore db;
     private ArrayList from_prev_transactions,to_prev_transactions;
-
-    @SuppressLint("WrongViewCast")
+    int flag = -1;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +49,7 @@ public class PaymentActivity extends AppCompatActivity {
         phone = findViewById(R.id.to);
         phone.setText("To:" + to_phonenumber);
 
-        confirm =  findViewById(R.id.confirm);
+        confirm =  findViewById(R.id.confirmCard);
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,7 +61,6 @@ public class PaymentActivity extends AppCompatActivity {
                 final DocumentReference to = db.collection("users").document(to_phonenumber);
 
                 db.runTransaction(new Transaction.Function<Void>() {
-
                     @Nullable
                     @Override
                     public Void apply(@NonNull Transaction transaction) throws FirebaseFirestoreException {
@@ -86,12 +84,14 @@ public class PaymentActivity extends AppCompatActivity {
                                  transaction.update(from,"prev_transactions",from_prev_transactions);
                                  transaction.update(to,"balance",to_balance);
                                  transaction.update(to,"prev_transactions",to_prev_transactions);
+                                 flag = 0;
                                  Intent i = new Intent(PaymentActivity.this,payment_options.class);
                                  i.putExtra("phone",from_phonenumber);
-                                 Toast.makeText(PaymentActivity.this,"Transaction successful",Toast.LENGTH_LONG).show();
-                                Log.d("Firestore","Transaction successful.");
+                                 i.putExtra("transaction_status",flag);
+                                 Log.d("Firestore","Transaction successful.");
                                  startActivity(i);
-                                return null;
+                                 finish();
+                                 return null;
                             }
                             else{
                                 Toast.makeText(PaymentActivity.this,"Amount cannot be greater than balance",Toast.LENGTH_LONG).show();
@@ -114,54 +114,13 @@ public class PaymentActivity extends AppCompatActivity {
                                 Log.w("Firestore", "Transaction failure.", e);
                             }
                         });
-
-//                db.collection("user").document(from_phonenumber).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull final Task<DocumentSnapshot> task) {
-//                        final int balance = (int) from.get().getResult().get("balance");
-//                        String PIN = String.valueOf(from.get().getResult().get("pin"));
-//                        if(inp_pin.equals(PIN)){
-//                            if(Amount < balance){
-//                                db.runTransaction(new Transaction.Function<Void>() {
-//                                    @Nullable
-//                                    @Override
-//                                    public Void apply(@NonNull Transaction transaction) throws FirebaseFirestoreException {
-//                                        DocumentReference to = db.collection("users").document(to_phonenumber);
-//                                        int bal = balance;
-//                                        int new_bal = (int) to.get().getResult().get("balance");
-//                                        bal -= Amount;
-//                                        new_bal += Amount;
-//                                        transaction.update(from,"balance",balance);
-//                                        transaction.update(to,"balance",new_bal);
-//
-//                                        return null;
-//                                    }
-//                                }).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                    @Override
-//                                    public void onComplete(@NonNull Task<Void> task) {
-//                                        Toast.makeText(PaymentActivity.this, "Transaction successful", Toast.LENGTH_LONG).show();
-//                                        Intent i = new Intent(PaymentActivity.this,payment_options.class);
-//                                        startActivity(i);
-//                                    }
-//                                }).addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                    @Override
-//                                    public void onSuccess(Void aVoid) {
-//                                        Log.d("Firestore","Transaction completed.");
-//                                    }
-//                                }).addOnFailureListener(new OnFailureListener() {
-//                                    @Override
-//                                    public void onFailure(@NonNull Exception e) {
-//                                        Log.w("Firestore", "Transaction failure.", e);
-//                                        Toast.makeText(PaymentActivity.this, "Transaction failed", Toast.LENGTH_LONG).show();
-//                                    }
-//                                });
-//                            }
-//                        }
-//                        else Toast.makeText(PaymentActivity.this,"Invalid PIN",Toast.LENGTH_LONG).show();
-//                    }
-//                });
             }
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
 }

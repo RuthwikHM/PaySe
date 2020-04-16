@@ -1,98 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    tools:context="com.example.payse.MainActivity"
-    android:layout_height="match_parent">
-
-<!--<ImageButton-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:src="@drawable/qrcode"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:layout_alignParentRight="true"-->
-<!--        android:id="@+id/barcode_scanner"/>-->
-<!--</RelativeLayout>-->
-
-<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:id="@+id/payment"-->
-<!--    android:layout_width="match_parent"-->
-<!--    tools:context="com.example.payse.MainActivity"-->
-<!--     android:layout_height="match_parent">-->
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerVertical="true"-->
-<!--        android:orientation="vertical">-->
-
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Name" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/textViewName"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="xyz"-->
-<!--            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />-->
-
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Address" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/textViewAddress"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="xyz"-->
-<!--            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />-->
-
-
-<!--    </LinearLayout>-->
-
-    <Button
-        android:id="@+id/signupnav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonReceive"
-        android:layout_marginBottom="65dp"
-        android:text="Signup" />
-
-    <Button
-        android:id="@+id/loginnav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/signupnav"
-        android:layout_marginBottom="48dp"
-        android:text="Login" />
-
-    <Button
-        android:id="@+id/buttonScan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Make payment" />
-
-    <Button
-        android:id="@+id/buttonReceive"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Receive payment" />
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".LoginActivity"
+    android:background="@drawable/bgapps2">
 
     <ImageView
-        android:id="@+id/qr"
-        android:layout_width="300px"
-        android:layout_height="300px"
-        android:layout_above="@+id/loginnav"
+        android:id="@+id/logo"
+        android:layout_width="300dp"
+        android:layout_height="91dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="148dp"
-        android:layout_marginBottom="27dp"
-        app:srcCompat="@android:color/white" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="108dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="635dp"
+        app:srcCompat="@drawable/rupeelogo" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/signupCard"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="450dp"
+        app:cardBackgroundColor="#4CAF50"
+        android:elevation="10dp"
+        app:cardCornerRadius="25dp"
+        android:clickable="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/getstarted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Signup"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/loginCard"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="350dp"
+        app:cardBackgroundColor="#4CAF50"
+        android:elevation="10dp"
+        app:cardCornerRadius="25dp"
+        android:clickable="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Login"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

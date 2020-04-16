@@ -1,9 +1,6 @@
 package com.example.payse;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -24,18 +21,15 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -148,10 +142,10 @@ public class payment_options extends AppCompatActivity implements NavigationView
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("Activity","payment_options activity started.");
         phonenumber = getIntent().getStringExtra("phone");
         name = getIntent().getStringExtra("name");
         String pin = getIntent().getStringExtra("pin");
+        int flag = getIntent().getIntExtra("transaction_status",-1);
         prev_trans.add(500);
         final Map<String, Object> data = new HashMap<>();
         data.put("phone", phonenumber);
@@ -159,6 +153,7 @@ public class payment_options extends AppCompatActivity implements NavigationView
         data.put("pin", pin);
         data.put("balance", "500");
         data.put("prev_transactions",prev_trans);
+        if(flag == 0) Toast.makeText(payment_options.this,"Transaction successful",Toast.LENGTH_LONG).show();
         final DocumentSnapshot[] document = new DocumentSnapshot[1];
         userdata = db.collection("users").document(phonenumber).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override

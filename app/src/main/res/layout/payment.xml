@@ -9,7 +9,7 @@
     >
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/loginCard"
+        android:id="@+id/confirmCard"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_alignParentEnd="true"
