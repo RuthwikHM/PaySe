@@ -70,7 +70,7 @@
         android:layout_marginBottom="340dp"
         android:background="@drawable/box_otp"
         android:imeOptions="actionNext"
-        android:inputType="phone"
+        android:inputType="numberPassword"
         android:maxLength="1"
         android:textAlignment="center"
         android:textColor="#ffffff" />
@@ -86,7 +86,7 @@
         android:layout_marginRight="216dp"
         android:background="@drawable/box_otp"
         android:imeOptions="actionNext"
-        android:inputType="phone"
+        android:inputType="numberPassword"
         android:maxLength="1"
         android:textAlignment="center"
         android:textColor="#ffffff" />
@@ -101,7 +101,7 @@
         android:layout_marginBottom="340dp"
         android:background="@drawable/box_otp"
         android:imeOptions="actionNext"
-        android:inputType="phone"
+        android:inputType="numberPassword"
         android:maxLength="1"
         android:textAlignment="center"
         android:textColor="#ffffff" />
@@ -116,7 +116,7 @@
         android:layout_marginBottom="340dp"
         android:background="@drawable/box_otp"
         android:imeOptions="actionNext"
-        android:inputType="phone"
+        android:inputType="numberPassword"
         android:maxLength="1"
         android:textAlignment="center"
         android:textColor="#ffffff"

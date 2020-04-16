@@ -153,7 +153,10 @@ public class payment_options extends AppCompatActivity implements NavigationView
         data.put("pin", pin);
         data.put("balance", "500");
         data.put("prev_transactions",prev_trans);
-        if(flag == 0) Toast.makeText(payment_options.this,"Transaction successful",Toast.LENGTH_LONG).show();
+        if(flag == 0) {
+            Toast.makeText(payment_options.this,"Transaction successful",Toast.LENGTH_LONG).show();
+            flag = -1;
+        }
         final DocumentSnapshot[] document = new DocumentSnapshot[1];
         userdata = db.collection("users").document(phonenumber).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override

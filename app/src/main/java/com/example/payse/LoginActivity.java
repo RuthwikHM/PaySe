@@ -61,9 +61,12 @@ public class LoginActivity extends AppCompatActivity {
                                    startActivity(intent);
                                    finish();
                                }
-                               else Toast.makeText(LoginActivity.this,"Invalid PIN." + pin,Toast.LENGTH_LONG).show();
+                               else Toast.makeText(LoginActivity.this,"Invalid PIN.",Toast.LENGTH_LONG).show();
                            }
-                           else Toast.makeText(LoginActivity.this, "User does not exist.Please signup before logging in.", Toast.LENGTH_LONG).show();
+                           else {
+                               Toast.makeText(LoginActivity.this, "User does not exist.Please signup before logging in.", Toast.LENGTH_LONG).show();
+                               startActivity(new Intent(LoginActivity.this,SignUpActivity.class));
+                           }
                         } else {
                             Log.d("Firestore error", "get failed with ", user.getException());
                         }
