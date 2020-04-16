@@ -47,10 +47,10 @@ public class LoginActivity extends AppCompatActivity {
                             DocumentSnapshot document;
                             document = user.getResult();
                            if(document.exists()){
-                               String pin = et1.getText().toString();
-                               pin = pin.concat(et2.getText().toString());
+                               String pin = et4.getText().toString();
                                pin = pin.concat(et3.getText().toString());
-                               pin = pin.concat(et4.getText().toString());
+                               pin = pin.concat(et2.getText().toString());
+                               pin = pin.concat(et1.getText().toString());
                                String val_pin = String.valueOf(document.get("pin"));
                                if(pin.equals(val_pin)){
                                    Intent intent = new Intent(LoginActivity.this,payment_options.class);

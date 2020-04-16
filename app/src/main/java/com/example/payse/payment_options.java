@@ -147,6 +147,7 @@ public class payment_options extends AppCompatActivity implements NavigationView
         String pin = getIntent().getStringExtra("pin");
         int flag = getIntent().getIntExtra("transaction_status",-1);
         prev_trans.add(500);
+        for(int i = 0;i < 9;i++) prev_trans.add(0);
         final Map<String, Object> data = new HashMap<>();
         data.put("phone", phonenumber);
         data.put("name", name);
